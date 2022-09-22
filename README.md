@@ -1,4 +1,4 @@
-# vue-cli-template
+# notes
 
 ## Project setup
 ```
