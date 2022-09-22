@@ -16,9 +16,18 @@ export default {
   data() {
     return {
       notes: [
-        'task 1',
-        'task 2',
-        'task 3'
+        {
+          title:'Test note',
+          tags: ['work']
+        },
+        {
+          title:'Test note2',
+          tags: ['work', 'home']
+        },
+        {
+          title:'Test note3',
+          tags: []
+        },
       ]
     }
   },
