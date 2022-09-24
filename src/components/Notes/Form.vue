@@ -17,9 +17,15 @@ export default {
   },
   data () {
     return {
-      value: '',
-      tags: ['home','work','travel'],
-      activeTags: []
+      value: ''
+    }
+  },
+  computed: {
+    tags() {
+      return this.$store.getters.getFormTags
+    },
+    activeTags() {
+      return this.$store.getters.getActiveTags
     }
   },
   methods: {
@@ -31,16 +37,10 @@ export default {
 
       this.$emit('onSubmit', newNote);
       this.value = '';
-      this.activeTags = [];
+      this.$store.dispatch('clearActiveTags')
     },
     handleTagClick(item) {
-      const index = this.activeTags.indexOf(item);
-        
-      if (index >= 0) {
-        this.activeTags.splice(index, 1);
-      } else {
-        this.activeTags.push(item);
-      }
+      this.$store.dispatch('handleActiveTag', item)
     }
   }
 }

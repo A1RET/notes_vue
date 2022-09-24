@@ -13,50 +13,21 @@ export default {
     Form,
     List
   },
-  data() {
-    return {
-      notes: [
-        {
-          title:'Test note',
-          tags: ['work']
-        },
-        {
-          title:'Test note2',
-          tags: ['work', 'home']
-        },
-        {
-          title:'Test note3',
-          tags: []
-        },
-      ]
+  computed: {
+    notes() {
+      return this.$store.getters.getNotes;
     }
   },
   mounted() {
-    this.getNotes();
+    this.$store.dispatch('getLocalNotes')
   },
   methods: {
-    getNotes () {
-      const localNotes = localStorage.getItem('notes');
-
-      if (localNotes) {
-        this.notes = JSON.parse(localNotes);
-      }
-    },
     handleSubmit (note) {
-      this.notes.push(note);
+      this.$store.dispatch('addNote', note);
     },
     handleRemove (index) {
-      this.notes.splice(index, 1);
+      this.$store.dispatch('removeNote', index);
     }
-  },
-  watch: {
-    notes: {
-      handler(updatedList) {
-        localStorage.setItem('notes', JSON.stringify(updatedList));
-      },
-      deep: true
-    }    
-  }
-  
+  }  
 }
 </script>
