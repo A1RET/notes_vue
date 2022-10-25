@@ -1,5 +1,9 @@
 # notes
 
+## Demo
+
+(https://a1ret.github.io/notes/)
+
 ## Project setup
 ```
 npm install
