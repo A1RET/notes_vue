@@ -2,7 +2,7 @@
 
 ## Demo
 
-(https://a1ret.github.io/notes/)
+(https://a1ret.github.io/notes_vue/)
 
 ## Project setup
 ```
